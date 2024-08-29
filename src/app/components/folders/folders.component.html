@@ -1,0 +1,19 @@
+<div class="folder-container">
+    <div class="subfolder">
+        <p>Folders</p>
+        <span class="arrow" >+</span>
+    </div>
+    <div class="folder" *ngFor="let folder of folders">
+      <div class="folder-header" (click)="toggleFolder(folder)">
+        <img src="assets/folder.png" alt="Folder Icon" class="folder-icon" />
+        <span>{{ folder.name }}</span>
+        <span class="arrow" [ngClass]="{'open': folder.isOpen}">▼</span>
+      </div>
+      <div class="subfolders" *ngIf="folder.isOpen">
+        <div class="subfolder" *ngFor="let subfolder of folder.subfolders">
+          {{ subfolder }}
+        </div>
+      </div>
+    </div>
+  </div>
+  
