@@ -1,0 +1,100 @@
+<div class="products-header">
+    <div class="header-title">
+      <h2>Products</h2>
+    </div>
+    <div class="header-actions">
+      <input type="text" placeholder="Search for..." class="search-input">
+      <div class="action-buttons">
+        <button class="icon-button"><img class="chatico" src="assets/chat.png" alt="Add Icon"></button>
+        <button class="icon-button">⚙️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="filters-bar">
+    <div class="left">
+      <button class="filter-button">All Brands ▼</button>
+      <button class="filter-button">Desk ▼</button>
+      <button class="filter-button">Tags ▼</button>
+      <button class="filter-button">Sort</button>
+      <button class="filter-button">Filter</button>
+
+    </div>
+    <div class="right">
+      <button class="forMeetingBtn">
+        <img src="assets/more.png" alt="Add Icon">
+        Meeting
+      </button>
+      <button class="filter-button">Import/Export</button>
+      </div>
+  </div>
+
+  <div class="products-container">
+
+    <div class="floating-menu">
+      <div class="menu-item">
+        <span>{{ selectedCount }} selected</span>
+      </div>
+      <div class="menu-item">
+        <img src="assets/arch.png" alt="Archive Icon">
+        <span>Archive</span>
+      </div>
+      <div class="menu-item">
+        <img src="assets/delete.png" alt="Delete Icon">
+        <span>Delete</span>
+      </div>
+      <div class="menu-item">
+        <span>More</span>
+      </div>
+    </div>
+    <table class="products-table">
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" (change)="selectAll($event)" />
+          </th>
+          <th>Brand</th>
+          <th>Description</th>
+          <th>Members</th>
+          <th>Categories</th>
+          <th>Tags</th>
+          <th class="min100width">Next Meeting</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products; let i = index">
+          <td>
+            <input
+              type="checkbox"
+              [(ngModel)]="selectedProducts[i]"
+              (change)="updateSelection(i)"
+            />
+          </td>
+          <td class="brand-column">
+            <img [src]="product.logoUrl" alt="{{ product.name }} logo" class="brand-logo" />
+            <span>{{ product.name }}</span>
+          </td>
+          <td class="description-column">{{ product.description }}</td>
+          <td>
+            <div class="members">
+              <img *ngFor="let member of product.memberImages" [src]="member" alt="Member" class="member-img" />
+            </div>
+          </td>
+          <td>
+            <div class="categories">
+              <span *ngFor="let category of product.categories" class="category">{{ category }}</span>
+            </div>
+          </td>
+          <td>
+            <div class="tags">
+              <span *ngFor="let tag of product.tags" class="tag">{{ tag }}</span>
+            </div>
+          </td>
+          <td [ngClass]="getMeetingClass(product.nextMeeting)">
+            {{ product.nextMeeting }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

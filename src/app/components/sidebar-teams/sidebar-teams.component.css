@@ -1,0 +1,57 @@
+.teams-area {
+  padding: 10px;
+  
+  .team {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 5px;
+    
+    &.active {
+      background-color: #f1f1f1;
+    }
+
+    &:hover {
+      background-color: #f1f1f1;
+    }
+
+    .team-icon img {
+      width: 16px;
+      height: 16px;
+      margin-right: 10px;
+    }
+
+    .team-name {
+      flex-grow: 1;
+      font-size: 14px;
+    }
+
+    .team-shortcut {
+      font-size: 12px;
+      color: #888;
+    }
+  }
+
+  .create-team {
+    margin-top: 10px;
+    
+    button {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      color: #4f4f4f;
+      cursor: pointer;
+
+      img {
+        width: 14px;
+        height: 14px;
+        margin-right: 5px;
+      }
+    }
+  }
+}

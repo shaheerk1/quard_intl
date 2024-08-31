@@ -1,0 +1,51 @@
+.bottom-sidebar {
+  padding: 16px;
+  background-color: white;
+  border-top: 1px solid #e0e0e0;
+}
+
+.sidebar-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #333;
+}
+
+.sidebar-option i {
+  margin-right: 8px;
+  font-size: 20px;
+  color: #333;
+}
+
+.sidebar-option .badge {
+  margin-left: auto;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  padding: 2px 8px;
+  font-size: 12px;
+  color: #333;
+}
+
+.trial-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #333;
+}
+
+.trial-info button.add-billing {
+  padding: 6px 12px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.trial-info button.add-billing:hover {
+  background-color: #555;
+}

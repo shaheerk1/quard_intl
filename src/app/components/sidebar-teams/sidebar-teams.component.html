@@ -1,0 +1,19 @@
+<div class="teams-area">
+  <div class="team" *ngFor="let team of teams" [class.active]="team.isActive">
+    <div class="team-icon">
+      <img [src]="team.icon" alt="Team Icon">
+    </div>
+    <div class="team-name">
+      {{ team.name }}
+    </div>
+    <div class="team-shortcut">
+      {{ team.shortcut }}
+    </div>
+  </div>
+  <div class="create-team">
+    <button>
+      <img src="assets/more.png" alt="Add Icon">
+      Create a team
+    </button>
+  </div>
+</div>
