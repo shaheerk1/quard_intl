@@ -1,0 +1,171 @@
+<div class="container">
+  <div class="header">
+    <h1>Manage Products</h1>
+    <button class="btn create-btn" (click)="openCreateDialog()">
+      <i class="fas fa-plus"></i> Create Product
+    </button>
+  </div>
+</div>
+
+
+<div class="table-container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Brand</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Members</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ product.brand }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ getMemberNames(product) }}</td>
+        <td>
+          <div class="actionBtns">
+            <button class="btn edit-btn" (click)="editProduct(product)">
+              <i class="fas fa-edit"></i> Edit
+            </button>
+            <button class="btn delete-btn" (click)="deleteProduct(product.id)">
+              <i class="fas fa-trash-alt"></i> Delete
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="dialog-overlay" *ngIf="isDialogOpen">
+  <div class="dialog-box">
+    <div class="dialog-header">
+      <h2>Edit Product</h2>
+      <button class="close-btn" (click)="closeDialog()">×</button>
+    </div>
+    <div class="dialog-body">
+      <form [formGroup]="editProductForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="brand">Brand</label>
+          <input
+            id="brand"
+            formControlName="brand"
+            type="text"
+            class="form-control"
+            placeholder="Enter brand name"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            formControlName="description"
+            class="form-control"
+            placeholder="Enter description"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input
+            id="category"
+            formControlName="category"
+            type="text"
+            class="form-control"
+            placeholder="Enter category"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="members">Members</label>
+          <input
+            id="members"
+            formControlName="members"
+            type="text"
+            class="form-control"
+            placeholder="Enter members, separated by commas"
+          />
+        </div>
+
+        <div class="dialog-footer">
+          <button type="submit" class="btn save-btn">Save</button>
+          <button type="button" class="btn cancel-btn" (click)="closeDialog()">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="dialog-overlay" *ngIf="isCreateDialogOpen">
+  <div class="dialog-box">
+    <div class="dialog-header">
+      <h2>Edit Product</h2>
+      <button class="close-btn" (click)="closeCreateDialog()">×</button>
+    </div>
+    <div class="dialog-body">
+      <form [formGroup]="editProductForm" (ngSubmit)="onCreateSubmit()">
+        <div class="form-group">
+          <label for="brand">Brand</label>
+          <input
+            id="brand"
+            formControlName="brand"
+            type="text"
+            class="form-control"
+            placeholder="Enter brand name"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            formControlName="description"
+            class="form-control"
+            placeholder="Enter description"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input
+            id="category"
+            formControlName="category"
+            type="text"
+            class="form-control"
+            placeholder="Enter category"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="members">Members</label>
+          <input
+            id="members"
+            formControlName="members"
+            type="text"
+            class="form-control"
+            placeholder="Enter members, separated by commas"
+          />
+        </div>
+
+        <div class="dialog-footer">
+          <button type="submit" class="btn save-btn">Save</button>
+          <button
+            type="button"
+            class="btn cancel-btn"
+            (click)="closeCreateDialog()"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
